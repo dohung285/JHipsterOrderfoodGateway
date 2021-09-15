@@ -87,9 +87,32 @@ public class SecurityConfiguration {
                 .frameOptions().disable()
         .and()
             .authorizeExchange()
+
+//            .pathMatchers("/api/menu/**").permitAll()
+//            .pathMatchers("**/api/menu/**").permitAll()
+
             .pathMatchers("/").permitAll()
             .pathMatchers("/*.*").permitAll()
             .pathMatchers("/api/auth-info").permitAll()
+
+
+
+
+
+
+            .pathMatchers(HttpMethod.GET,"/services/orderfood/api/menu/byNotRole").permitAll()
+            .pathMatchers(HttpMethod.GET,"/services/orderfood/api/menu/byWithRole").permitAll()
+            .pathMatchers(HttpMethod.GET,"/services/orderfood/api/food/byFoodGroup/**").permitAll()
+            .pathMatchers(HttpMethod.GET,"/services/orderfood/api/food/foodDetail/**").permitAll()
+            .pathMatchers(HttpMethod.GET,"/services/orderfood/api/food/search/**").permitAll()
+            .pathMatchers(HttpMethod.GET,"/services/orderfood/api/countStar/**").permitAll()
+            .pathMatchers(HttpMethod.GET,"/services/orderfood/api/comment/**").permitAll()
+
+
+
+
+
+
             .pathMatchers("/api/admin/**").hasAuthority(AuthoritiesConstants.ADMIN)
             .pathMatchers("/api/**").authenticated()
             .pathMatchers("/services/**").authenticated()
