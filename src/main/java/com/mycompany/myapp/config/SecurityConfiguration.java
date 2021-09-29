@@ -102,19 +102,26 @@ public class SecurityConfiguration {
 
             .pathMatchers(HttpMethod.GET,"/services/orderfood/api/menu/byNotRole").permitAll()
             .pathMatchers(HttpMethod.GET,"/services/orderfood/api/menu/byWithRole").permitAll()
+
+            .pathMatchers(HttpMethod.GET,"/services/orderfood/api/menu/item-monan").permitAll()
+
             .pathMatchers(HttpMethod.GET,"/services/orderfood/api/food/byFoodGroup/**").permitAll()
             .pathMatchers(HttpMethod.GET,"/services/orderfood/api/food/foodDetail/**").permitAll()
             .pathMatchers(HttpMethod.GET,"/services/orderfood/api/food/search/**").permitAll()
             .pathMatchers(HttpMethod.GET,"/services/orderfood/api/countStar/**").permitAll()
             .pathMatchers(HttpMethod.GET,"/services/orderfood/api/comment/**").permitAll()
 
+            .pathMatchers(HttpMethod.POST,"/services/orderfood/api/notification/data").permitAll()
+
+            .pathMatchers(HttpMethod.GET,"/services/orderfood/api/permission/get-notification/**").permitAll()
+            .pathMatchers(HttpMethod.GET,"/services/orderfood/api/permission/checknew/**").permitAll()
 
 
-
+            .pathMatchers(HttpMethod.GET,"/services/orderfood/api/sayHello").permitAll()
 
 
             .pathMatchers("/api/admin/**").hasAuthority(AuthoritiesConstants.ADMIN)
-            .pathMatchers("/api/**").authenticated()
+//            .pathMatchers("/api/**").authenticated()
             .pathMatchers("/services/**").authenticated()
             .pathMatchers("/management/health").permitAll()
             .pathMatchers("/management/health/**").permitAll()
